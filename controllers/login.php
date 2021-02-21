@@ -1,16 +1,37 @@
 <?php
+
 /**
- * @author phulv
+ * @author minhquys
  * @since 1.0
  * @todo Login Controller
- * @category Controller
  */
 
 class Login
 {
-    public function __construct()
+    public $model;
+
+    public function Controller()
     {
-        
+        $this->model = new masterData();
+    }
+
+    public function index()
+    {
+        // $this->users = $this->model->login();
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        header('Content-Type: text/html; charset=UTF-8');
+        $username_err = $password_error = "";
+        if (isset($_POST['login'])) {
+            include('./model/loginModel.php');
+            $connect = new loginModel();
+            $username = addslashes($_POST['txtUsername']);
+            $password = addslashes($_POST['txtPassword']);
+            $password = md5($password);
+            $user = $connect->login($username, $password);
+        }
+        include 'view' . DS . 'login.php';
     }
 
     public function notfound()
@@ -25,17 +46,9 @@ class Login
 
     public function listData()
     {
-        include './view' .DS. 'listData.php';
+        include './view' . DS . 'listData.php';
     }
-    
-    public function index()
-    {
-        include 'view' .DS. 'login.php';
-    }
-    // public function dx()
-    // {
-    //     include include './view/index.php';
-    // }
+
 
     public function logout()
     {
@@ -56,41 +69,4 @@ class Login
     {
         include './view/index.php';
     }
-    
-
-    public function postLogin()
-    {
-        include "./model/masterData.php";
-        if($_SERVER["REQUEST_METHOD"] == "POST")
-        {
-            $model = new masterData;
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $password = md5($password);
-            $sql = "SELECT username, password FROM user WHERE username='$username'";
-            if (mysqli_num_rows($model->query($sql)) == 0) {
-                $username_error = "Tên đăng nhập không tồn tại !";
-                // echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
-                // exit;
-            }
-            
-            //Lấy mật khẩu trong database ra
-            $row = mysqli_fetch_array($model->query($sql));
-            // ddd($row);
-            //So sánh 2 mật khẩu có trùng khớp hay không
-            if ($password != $row['password']) {
-                $password_error = "Mật khẩu không đúng.";
-        //         echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
-        // ddd($password_error);die;
-
-                // exit;
-            } else {
-                //Lưu tên đăng nhập
-            $_SESSION['username'] = $username;
-            header('Location:index.php/login/listData');
-            die();
-            }
-        }
-    }
 }
-

@@ -26,35 +26,6 @@
 </head>
 
 <body>
-    <?php
-    //Khai báo sử dụng session
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-
-    //Khai báo utf-8 để hiển thị được tiếng việt
-    header('Content-Type: text/html; charset=UTF-8');
-
-    // khai báo biến cho lỗi đăng nhập.
-    $nameErr = $passwordErr = "";
-
-    //Xử lý đăng nhập
-    if (isset($_POST['view/login.php'])) {
-
-        //Kết nối tới database
-        include('model/masterData.php');
-        $connect = new masterData();
-        //Lấy dữ liệu nhập vào
-        $username = addslashes($_POST['txtUsername']);
-        $password = addslashes($_POST['txtPassword']);
-
-        // mã hóa pasword
-        $password = md5($password);
-
-        //Kiểm tra tên đăng nhập có tồn tại không
-        $user = $connect->login($username, $password);
-    }
-    ?>
 
     <main class="login-form">
         <div class="cotainer">

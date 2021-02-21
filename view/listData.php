@@ -39,7 +39,7 @@
                     include 'model/masterData.php';
                     $data = new masterData();
                     $user = $data->getdata();
-                    while($in = mysql_fetch_row($user)) 
+                    while($in = mysqli_fetch_row($user)) 
                     {
                         $id=$in[0];
                         echo '<tr><td scope-"row">'. $in[0].'</td>';
