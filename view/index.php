@@ -18,7 +18,7 @@
        }
        else{
            echo 'Bạn chưa đăng nhập <br>';
-           echo 'Click vào đây để <a href="login">Đăng Nhập</a>';
+           echo 'Click vào đây để <a href="index.php?module=login">Đăng Nhập</a>';
        }
        ?>
     </body>

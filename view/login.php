@@ -5,6 +5,7 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -23,10 +24,13 @@
 
     <title>Đăng Nhập</title>
 </head>
+
 <body>
-<?php
+    <?php
     //Khai báo sử dụng session
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    }
 
     //Khai báo utf-8 để hiển thị được tiếng việt
     header('Content-Type: text/html; charset=UTF-8');
@@ -48,26 +52,25 @@
         $password = md5($password);
 
         //Kiểm tra tên đăng nhập có tồn tại không
-        $user =$connect->login($username,$password);
+        $user = $connect->login($username, $password);
     }
     ?>
 
-<main class="login-form">
-    <div class="cotainer">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Đăng nhập tài khoản</div>
+    <main class="login-form">
+        <div class="cotainer">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">Đăng nhập tài khoản</div>
                         <div class="card-body">
                             <form method="post">
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Đăng Nhập</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="txtUsername" value="<?php echo(isset($username)?$username:'') ?>" required autofocus >
-                                        <!-- <span class="text-danger"><?php echo  $nameErr ;?></span> -->
-                                        <?php 
-                                        if (isset($a))
-                                        {
+                                        <input type="text" id="email_address" class="form-control" name="txtUsername" value="<?php echo (isset($username) ? $username : '') ?>" required autofocus>
+                                        <!-- <span class="text-danger"><?php echo  $nameErr; ?></span> -->
+                                        <?php
+                                        if (isset($a)) {
                                             echo $a;
                                         }
                                         ?>
@@ -79,9 +82,8 @@
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Mật khẩu</label>
                                     <div class="col-md-6">
                                         <input type="password" id="password" class="form-control" name="txtPassword" required>
-                                        <?php 
-                                        if (isset($b))
-                                        {
+                                        <?php
+                                        if (isset($b)) {
                                             echo $b;
                                         }
                                         ?>
@@ -107,18 +109,19 @@
                                         Quên mật khẩu?
                                     </a>
                                 </div>
-                                
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
+        </div>
 
-</main>
+    </main>
 
 
 </body>
+
 </html>
