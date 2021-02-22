@@ -10,26 +10,24 @@ class Login
 {
     public $model;
 
-    public function Controller()
+    public function __construct()
     {
-        $this->model = new masterData();
+        include('./model/loginModel.php');
+        $this->model = new loginModel();
     }
 
     public function index()
     {
-        // $this->users = $this->model->login();
         if (!isset($_SESSION)) {
             session_start();
         }
         header('Content-Type: text/html; charset=UTF-8');
         $username_err = $password_error = "";
         if (isset($_POST['login'])) {
-            include('./model/loginModel.php');
-            $connect = new loginModel();
             $username = addslashes($_POST['txtUsername']);
             $password = addslashes($_POST['txtPassword']);
             $password = md5($password);
-            $user = $connect->login($username, $password);
+            $user = $this->model->login($username, $password);
         }
         include 'view' . DS . 'login.php';
     }
