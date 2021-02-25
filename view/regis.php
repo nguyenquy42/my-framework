@@ -12,58 +12,6 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<?php
- 
-    include './model/masterData.php';
-    $model = new masterData();
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        // kiểm tra sự tồn tại của biến và khởi tạo biến. lấy dử liệu từ file regis.php.
-        if(isset($_POST["username"])) 
-        { 
-            $username = $_POST['username']; 
-        }
-
-        // kiểm tra sự tồn tại của biến và khởi tạo biến. lấy dử liệu từ file regis.php.
-        if(isset($_POST["password"])) 
-        { 
-            $password = $_POST['password']; 
-            
-            // mã hóa password
-            $password = md5($password);
-        }
-
-        // kiểm tra sự tồn tại của biến và khởi tạo biến. lấy dử liệu từ file regis.php.
-        if(isset($_POST["email"])) 
-        {
-            $email = $_POST['email'];
-        }
-
-        // kiểm tra sự tồn tại của biến và khởi tạo biến. lấy dử liệu từ file regis.php.
-        if(isset($_POST["fullname"])) 
-        {
-            $fullname = $_POST['fullname'];
-        }
-
-        // kiểm tra sự tồn tại của biến và khởi tạo biến. lấy dử liệu từ file regis.php.
-        if(isset($_POST["birthday"])) 
-        {
-            $birthday = $_POST['birthday'];
-        }
-
-        // kiểm tra sự tồn tại của biến và khởi tạo biến. lấy dử liệu từ file regis.php.
-        if(isset($_POST["sex"]))
-        {
-            $sex = $_POST['sex'];
-        }
-        // Sau khi tất cả dữ liệu đã tồn tại thì gọi function addUser để thêm dữ liệu vào DB.
-        $model->addmember($username,$password,$email,$fullname,$birthday,$sex);
-    }
-   
-?>
-
-
 <div class="container-fluid">
     <section class="container">
 		<div class="container-page">
@@ -129,7 +77,7 @@
 				
 				<button type="submit" class="btn btn-primary">Đăng ký</button>
                 <input type="reset" class="btn btn-primary" value="Nhập lại" >
-                <input onclick="location.href='/learn-php-quy/index.php/login/login'" class="btn btn-primary" value="Đăng nhập">
+                <input onclick="location.href='index.php?module=login'" class="btn btn-primary" value="Đăng nhập">
 			</div>
             </form>	
             

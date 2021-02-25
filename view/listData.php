@@ -64,6 +64,8 @@
                 ?>
             </tbody>
         </table>
+
+        <?php   echo $username_author; ?>
         <!-- <a href="addUser.php"><i class="fa fa-plus-circle"></i> </a> -->
         <button onclick="location.href='/learn-php-quy/index.php/login/addData'" name="button" class="btn btn-success pull-right addmember">
         <i class="fa fa-plus-circle"></i>
@@ -74,7 +76,7 @@
         <button onclick="location.href='/learn-php-quy/index.php/login/regis'" name="button" class="btn btn-success pull-right addmember">
         <i class="fa fa-id-card-o" aria-hidden="true"></i>
         </button>
-        <button onclick="location.href='/learn-php-quy/index.php/login/logout'" name="button" class="btn btn-success pull-right addmember">
+        <button onclick="location.href='/my-framework/index.php?module=login&view=logout'" name="button" class="btn btn-success pull-right addmember">
         <i class="fa fa-sign-out" aria-hidden="true"></i>
         </button>
     </div>

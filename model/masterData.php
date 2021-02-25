@@ -62,12 +62,6 @@ class masterData extends Database implements ModelInterface
         header("location:/learn-php-quy/index.php/article");
     }
 
-    //Lưu thông tin thành viên vào bảng
-    public function addmember($username, $password, $email, $fullname, $birthday, $sex)
-    {
-        $this->add('member', 'username,password,email,fullname,birthday,sex', "'$username','$password','$email','$fullname','$birthday','$sex'");
-    }
-
     // public function deleteData($id)
     // {
     //     // $sql ="DELETE FROM article WHERE id=$id";

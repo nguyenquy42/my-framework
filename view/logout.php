@@ -1,7 +1,11 @@
-<?php session_start(); 
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
  
 if (isset($_SESSION['username'])){
     unset($_SESSION['username']); // xóa session login
+    header('Location: index.php');
 }
 ?>
-<a href="index">Quay về trang HOME</a>
+<a href="index.php">Quay về trang HOME</a>

@@ -75,7 +75,7 @@
                                     <button type="submit" class="btn btn-primary" name="login">
                                         Đăng Nhập
                                     </button>
-                                    <input onclick="location.href='/learn-php-quy/index.php/login/regis'" class="btn btn-primary" value="Đăng ký">
+                                    <input onclick="location.href='index.php?module=login&view=regis'" class="btn btn-primary" value="Đăng ký">
                                     <a href="#" class="btn btn-link">
                                         Quên mật khẩu?
                                     </a>
