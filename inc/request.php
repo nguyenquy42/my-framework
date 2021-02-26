@@ -18,4 +18,10 @@ class Request {
     {
         return self::get(2);
     }
+
+    public static function id()
+    {
+        return self::get(3);
+    }
+
 }

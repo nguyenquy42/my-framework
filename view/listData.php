@@ -3,7 +3,7 @@ include 'partials/header.php';
 ?>
 <main>
   <div class="container">
-    <h1>Danh sách hội đồng cấp cao của cty .........</h1>
+    <h1 class="text-center">Danh sách hội đồng cấp cao của cty .........</h1>
     <div class="row">
       <table class="table text-center">
         <thead>
@@ -16,7 +16,6 @@ include 'partials/header.php';
         </thead>
         <tbody>
           <?php
-          // ddd($this->users);
           for ($i = 0; $i < count($this->users); $i++) {
 
             $stt = $i + 1;
@@ -25,9 +24,10 @@ include 'partials/header.php';
             echo '<td>' . $this->users[$i]['fullname'] . '</td>';
             echo '<td>' . $this->users[$i]['email'] . '</td>';
             echo '<td> 
-            <a href="/lpbooks.tk/view/view.php/' . $id . '">Xem</a>
-            <a href="/learn-php-quy/index.php/article/uparticle/' . $id . '">Sửa</a>
+            <a class="btn btn-outline-success" href="index.php?module=login&view=detailItem&action=getdetail&id=' . $id . '">Xem</a>
+            <a class="btn btn-outline-danger" href="index.php?module=login&view=detailItem&action=delete&id=' . $id . '">Xoá</a>
             </td></tr>';
+
           }
           ?>
         </tbody>

@@ -37,15 +37,29 @@ class Login
     echo "đường dẫn sai! không thể vào login";
     die;
   }
-  public function addData()
-  {
-    include './view/addData.php';
-  }
-
   public function listData()
   {
     $this->users = $this->model->getallmenber();
     include './view' . DS . 'listData.php';
+  }
+
+
+  public  function detailItem($id = '')
+  {
+    if (isset($_GET['action'])) {
+      $id = $_GET['id'];
+      $action = $_GET['action'];
+      if ($action == 'getdetail') {
+        $this->user = $this->model->getmenber($id);
+      }
+    }
+    include './view/detailMember.php';
+    die;
+  }
+
+  public function addData()
+  {
+    include './view/addData.php';
   }
 
 
@@ -82,19 +96,53 @@ class Login
       if (isset($_POST["sex"])) {
         $sex = $_POST['sex'];
       }
-     $this->model->addmember($username, $password, $email, $fullname, $birthday, $sex);
+      $this->model->addmember($username, $password, $email, $fullname, $birthday, $sex);
     }
     include './view/regis.php';
   }
 
-  public function updata()
+  public function updata($id = '')
   {
-    include './view/updata.php';
+    if (isset($_GET['action'])) {
+      $id = $_GET['id'];
+      $action = $_GET['action'];
+      if ($action == 'update') {
+        $this->user = $this->model->getmenber($id);
+      }
+    }
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+      if (isset($_POST["username"])) {
+        $username = $_POST['username'];
+      }
+
+      if (isset($_POST["email"])) {
+        $email = $_POST['email'];
+      }
+
+      if (isset($_POST["fullname"])) {
+        $fullname = $_POST['fullname'];
+      }
+
+      if (isset($_POST["birthday"])) {
+        $birthday = $_POST['birthday'];
+      }
+
+      if (isset($_POST["sex"])) {
+        $sex = $_POST['sex'];
+      }
+
+      $b = $this->model->upDataMember($username, $email, $fullname, $birthday, $sex, $id);
+      ddd($b);
+    }
+    include './view/updataMember.php';
   }
 
   public function home()
   {
-    
+
     include './view/index.php';
   }
 }

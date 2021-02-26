@@ -56,7 +56,6 @@ class Database
     public function up($tablename,$setname,$idname)
     {
         $this->query("UPDATE {$tablename} SET {$setname} WHERE id={$idname}");
-    // $sql = "UPDATE article SET name='$name',contact='$contact',status=$status WHERE id=$id";
     }
 }
 $b = new Database();

@@ -23,7 +23,6 @@
                     </thead>
                     <tbody>
                         <?php
-                            qqq($id);
                             $request = $_SERVER['REQUEST_URI'];
                             $parse_request = explode("/", $request);
 

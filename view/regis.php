@@ -51,11 +51,11 @@
                             </div>
                 
                             <div class="col-xs-4 male">	 
-                                <input type="radio" name="sex" value="boy">Nam</input>
+                                <input type="radio" name="sex" value="Nam">Nam</input>
                             </div>
                     
                             <div class="col-xs-4 female">
-                                <input type="radio"  name="sex" value="girl" >Nữ</input>
+                                <input type="radio"  name="sex" value="Nữ" >Nữ</input>
                             </div>
                         </div>
                     </div>	

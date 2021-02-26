@@ -28,6 +28,7 @@ if(isset($parse_request[4]))
         $in = mysql_fetch_row($user);
     }
 }
+
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     // kiểm tra sự tồn tại của biến và khởi tạo biến.
