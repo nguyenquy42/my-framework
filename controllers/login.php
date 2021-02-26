@@ -44,9 +44,8 @@ class Login
 
   public function listData()
   {
-    $username_author = $_SESSION['username'];
+    $this->users = $this->model->getallmenber();
     include './view' . DS . 'listData.php';
-    return $username_author;
   }
 
 
@@ -95,6 +94,7 @@ class Login
 
   public function home()
   {
+    
     include './view/index.php';
   }
 }

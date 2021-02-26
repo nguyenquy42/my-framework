@@ -34,6 +34,11 @@ class loginModel extends Database
     return $user;
   }
 
+  public function getallmenber() {
+    $users = $this->query("SELECT * FROM `learn-php-lpt`.member;");
+        return $users;
+  }
+
 
   //Lưu thông tin thành viên vào bảng
   public function addmember($username, $password, $email, $fullname, $birthday, $sex)

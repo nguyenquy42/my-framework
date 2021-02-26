@@ -2,6 +2,17 @@
 session_start();
 require_once 'autoload.php';
 
+$author = null;
+$none = null;
+
+if (isset($_SESSION['username']) && $_SESSION['username']) {
+    $author = '<p class="nav-link dropdown-toggle m-0" data-toggle="dropdown">' . $_SESSION['username'] . '</p>';
+    $_SESSION['author'] = $author ;
+} else {
+    $none = '<a class="" href="' . BASE_URL . '/index.php?module=login">đăng nhập</a>';
+    $_SESSION['none'] = $none ;
+}
+
 // get Request to parse module
 $modules = isset($_GET['module']) ? $_GET['module'] : NULL;
 $view = isset($_GET['view']) ? $_GET['view'] : 'index';
