@@ -37,8 +37,18 @@ class Login
     echo "đường dẫn sai! không thể vào login";
     die;
   }
+  
   public function listData()
   {
+
+    if (isset($_GET['action'])) {
+      $id = $_GET['id'];
+      $action =  $_GET['action'];
+      if ($action == 'delete') {
+        $this->model->deleteData($id);
+      }
+    }
+
     $this->users = $this->model->getallmenber();
     include './view' . DS . 'listData.php';
   }
@@ -134,8 +144,11 @@ class Login
         $sex = $_POST['sex'];
       }
 
-      $b = $this->model->upDataMember($username, $email, $fullname, $birthday, $sex, $id);
-      ddd($b);
+      if (isset($_POST["permission"])) {
+        $permission = $_POST['permission'];
+      }
+
+      $this->model->upDataMember($username, $email, $fullname, $birthday, $sex, $permission, $id);
     }
     include './view/updataMember.php';
   }

@@ -14,4 +14,5 @@ define('THEME', 'View/');
 define('PHP', '.php');
 $url = $_SERVER['REQUEST_URI'];
 $path_url = explode('/', $url);
-define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . $path_url[1]) . '/';
+// define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/' . $path_url[1]) . '/';
+define('BASE_URL', 'http://' . $_SERVER['HTTP_HOST'] ) . '/';

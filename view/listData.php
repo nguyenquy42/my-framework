@@ -9,9 +9,10 @@ include 'partials/header.php';
         <thead>
           <tr>
             <th scope="col">STT</th>
-            <th scope="col">Name</th>
+            <th scope="col">Họ Tên</th>
             <th scope="col">Email</th>
-            <th scope="col">Action</th>
+            <th scope="col">Quyền</th>
+            <th scope="col">Tuỳ Chỉnh</th>
           </tr>
         </thead>
         <tbody>
@@ -23,9 +24,10 @@ include 'partials/header.php';
             echo '<tr><td scope-"row">' . $stt . '</td>';
             echo '<td>' . $this->users[$i]['fullname'] . '</td>';
             echo '<td>' . $this->users[$i]['email'] . '</td>';
+            echo '<td>' . $this->users[$i]['permission'] . '</td>';
             echo '<td> 
             <a class="btn btn-outline-success" href="index.php?module=login&view=detailItem&action=getdetail&id=' . $id . '">Xem</a>
-            <a class="btn btn-outline-danger" href="index.php?module=login&view=detailItem&action=delete&id=' . $id . '">Xoá</a>
+            <a class="btn btn-outline-danger" href="index.php?module=login&view=listData&action=delete&id=' . $id . '">Xoá</a>
             </td></tr>';
 
           }

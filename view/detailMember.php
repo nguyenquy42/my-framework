@@ -13,6 +13,7 @@ include 'partials/header.php';
             <th scope="col">Email</th>
             <th scope="col">Giới tính</th>
             <th scope="col">Tên đăng nhập</th>
+            <th scope="col">Quyềm</th>
             <!-- <th scope="col">Mật khẩu</th> -->
             <th scope="col">Chỉnh sửa</th>
           </tr>
@@ -23,6 +24,7 @@ include 'partials/header.php';
           <td scope="col"><?= $this->user[0]["email"] ?></td>
           <td scope="col"><?= $this->user[0]["sex"] ?></td>
           <td scope="col"><?= $this->user[0]["username"] ?></td>
+          <td scope="col"><?= $this->user[0]["permission"] ?></td>
           <!-- <td scope="col">
             <input class="form-control" type="password" value="<?= $pass = $this->user[0]["password"] ?>" disabled >
           </td> -->

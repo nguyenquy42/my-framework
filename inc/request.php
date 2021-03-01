@@ -1,6 +1,9 @@
 <?php
-class Request {
-    public function __construct() {}
+class Request
+{
+    public function __construct()
+    {
+    }
 
     public static function get($index = 0)
     {
@@ -8,7 +11,7 @@ class Request {
         $parse_request = explode("/", $request);
         return $parse_request[$index];
     }
-    
+
     public static function modules()
     {
         return self::get(1);
@@ -23,5 +26,4 @@ class Request {
     {
         return self::get(3);
     }
-
 }

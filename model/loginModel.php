@@ -51,9 +51,16 @@ class loginModel extends Database
     $this->add('member', 'username,password,email,fullname,birthday,sex', "'$username','$password','$email','$fullname','$birthday','$sex'");
   }
 
-  public function upDataMember($username,$email,$fullname,$birthday,$sex, $id)
+  public function upDataMember($username,$email,$fullname,$birthday,$sex,$permission, $id)
   {
-    $this->up('member', "username='$username',email='$email',fullname='$fullname',birthday='$birthday',sex='$sex'", $id);
+    $this->up('member', "username='$username',email='$email',fullname='$fullname',birthday='$birthday',sex='$sex',permission='$permission'", $id);
     header("location:index.php?module=login&view=detailItem&action=getdetail&id=$id");
   }
+
+  
+    public function deleteData($id)
+    {
+        $this->delete('member',$id);
+        header("location:index.php?module=login&view=listData");
+    }
 }

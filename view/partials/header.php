@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="index.php?module=login&view=listData">danh sách</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Link</a>
